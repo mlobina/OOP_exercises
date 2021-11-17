@@ -1,4 +1,5 @@
 class ChildValue:
+    """class descriptor"""
 
     def __init__(self, name):
         self.__name = name # наименование свойства
@@ -12,7 +13,6 @@ class ChildValue:
 
     def __set__(self, instance, value):
         instance.__dict__[self.__name] = value
-
 
 
 class ChildSmith:
