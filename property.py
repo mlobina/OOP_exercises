@@ -5,42 +5,44 @@ class ChildSmith:
         self.__name = name
         self.__gender = gender
 
-    def get_name(self):
+    def __get_name(self):
         return self.__name
 
-    def get_gender(self):
+    def __get_gender(self):
         return self.__gender
 
-    def set_name(self, value):
+    def __set_name(self, value):
         self.__name = value
 
-    def set_gender(self, value):
+    def __set_gender(self, value):
         self.__gender = value
 
-    def get_surname(self):
+    def __get_surname(self):
         return self.__SURNAME
 
-    def change_surname(self, value):
+    def __change_surname(self, value):
         self.__SURNAME = value
 
-
+    name = property(fget=__get_name, fset=__set_name)
+    gender = property(fget=__get_gender, fset=__set_gender)
+    surname = property(fget=__get_surname, fset=__change_surname)
 
 
 petr = ChildSmith("Petr", "male")
 print(ChildSmith.__dict__)
 print(petr.__dict__)
 print("___________")
-print(petr.get_name())
-print(petr.get_gender())
-print(petr.get_surname())
+print(petr.name)
+print(petr.gender)
+print(petr.surname)
 print("___________")
-petr.set_gender("female")
-petr.set_name("Kate")
-petr.change_surname("Ruster")
+petr.gender = "female"
+petr.name  = "Kate"
+petr.surname = "Ruster"
 print("___________")
 print(ChildSmith.__dict__)
 print(petr.__dict__)
 print("___________")
-print(petr.get_name())
-print(petr.get_gender())
-print(petr.get_surname())
+print(petr.name)
+print(petr.gender)
+print(petr.surname)
